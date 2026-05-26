@@ -189,6 +189,32 @@ describe("MCP public API tools", () => {
       expect(inAppToolNames).not.toContain(toolName);
     }
 
+    const destructiveToolNames = toolNames
+      .filter(
+        (toolName) =>
+          toolRegistry.getTool(toolName)?.definition.annotations
+            ?.destructiveHint,
+      )
+      .sort();
+    expect(destructiveToolNames).toEqual(
+      [
+        "createChatPrompt",
+        "createDataset",
+        "createDatasetItem",
+        "createTextPrompt",
+        "deleteAnnotationQueueAssignment",
+        "deleteAnnotationQueueItem",
+        "deleteDatasetItem",
+        "deleteDatasetRun",
+        "deleteModel",
+        "deleteScore",
+        "deleteScoreConfig",
+        "updateAnnotationQueueItem",
+        "updatePromptLabels",
+        "updateScoreConfig",
+      ].sort(),
+    );
+
     expect(mcpRouteConfig.api.bodyParser.sizeLimit).toBe("4.5mb");
   });
 

@@ -36,5 +36,4 @@ export const [createScoreConfigTool, handleCreateScoreConfig] = defineTool({
       },
     });
   },
-  destructiveHint: true,
 });

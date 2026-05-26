@@ -78,5 +78,4 @@ export const [createScoreTool, handleCreateScore] = defineTool({
       },
     });
   },
-  destructiveHint: true,
 });
